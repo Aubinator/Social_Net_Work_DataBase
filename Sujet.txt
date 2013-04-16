@@ -1,0 +1,53 @@
+Cas Pratique:  Gestion d’un réseau social
+Cette base de données est celle d’un réseau social (Exemple Facebook)
+utilisateur (id, nom, prénom, login, password, date )
+demande  (numdemande, date, id_expediteur, id_recepteur, etat)
+traitement_demande( numtraitement, numdemande, choix ,date)
+amis (id1, id2)
+publication (numpublication, texte, date, id_utilisateur)
+commentaire (numcommentaire, texte, date, numpublication, id_utilisateur)
+aimer_publication (id_utilisateur, numpublication)
+aimer_commentaire (id_utilisateur, numcommentaire)
+groupe (numgroupe, dateCreation, logo, description, type, id_utilisateur)
+inscription ( numinscription, numgroupe, id_utilisateur)
+message(nummessage, texte, date, id_expediteur, id_recepteur, etat)
+I.  Requêtes SQL (Vous pouvez créer des fonctions si nécessaire) 7 pts
+1)  Nom prénom des amis de l’utilisateur de login «diawdba»
+2)  Liste des publications qui ont été aimées par au minimum 5 utilisateurs
+3)  Nom et prénom des utilisateurs qui ont fait une publication contenant au minimum  un 
+commentaire qui a été aimé 2 fois
+4)  Nombre total de commentaires de chaque publication
+5)  Nom et prénom des utilisateurs qui ont envoyé une demande qui a été rejeté par 
+l’utilisateur de login «diawdba »
+6)  Nombre d’amis que Demba Fall et Aminata Diop ont en commun
+7)  Liste des messages que Demba Fall  a reçu et qui n’ont pas été envoyés par ses amis 
+II.  Procédures (3 pts)
+1)  Ecrire une procédure qui  reçoit  deux  login  en  paramètre  et affiche la liste des amis 
+qu’ils ont en commun (nom et prénom)
+2)  Ecrire une procédure qui reçoit en paramètre un login et affiche la liste des utilisateurs 
+qui sont dans un mm groupe que lui et qui ne figurent pas dans sa liste d’amis
+III.  Triggers (3 pts)
+1)  Ecrire un trigger qui  après  chaque confirmation d’une demande d’amis l’enregistre 
+dans la table amis
+2)  Ecrire un trigger qui après chaque publication met son nombre de commentaires à 0
+3)  Ecrire un trigger qui  après  chaque commentaires d’une publication met à jour le 
+nombre de commentaires de la publication concernée.
+IV.  Fonctions (4 pts)
+On veut élire le facebookeur de la semaine
+1)  Ecrire une fonction qui  reçoit  en  paramètre  un login  et retourne le nombre de 
+publications qui ont été postés par lui et qu’il a aimé
+2)  Ecrire une procédure facebookeur_semaine() qui affiche le plus grand facebookeur de 
+la semaine, utiliser la fonction précédente et la fonction MAX
+3)  Ecrire une fonction qui calcule le nombre de commentaire d’un utilisateur don son 
+login est passé en paramètre
+4)  Ecrire une procédure qui affiche la liste des utilisateurs  et leurs nombre de 
+commentaires (utiliser la fonction précédente)
+V.  Curseurs (5 points)
+Créer une BD de sauvegarde contenant une table utilisateurs et amis
+Créer une procédure sauvegarde qui fait la copie de la base vers la nouvelle base de 
+données (Utilisation des curseurs obligatoire).
+VI.  Evénements (3 points)
+1)  Chaque Samedi à 23h 59 on veut afficher la liste des facebookeurs de la semaine, 
+écrire cet événement
+2)  Créer un événement qui fait la sauvegarde de la base chaque mois (utiliser la 
+procédure sauvegarde) 
